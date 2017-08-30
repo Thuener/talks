@@ -11857,7 +11857,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Why-a-SDDP-framework-is-a-big-deal?">Why a SDDP framework is a big deal?<a class="anchor-link" href="#Why-a-SDDP-framework-is-a-big-deal?">&#194;&#182;</a></h1><h2 id="Alternatives">Alternatives<a class="anchor-link" href="#Alternatives">&#194;&#182;</a></h2><ul>
+<h1 id="Why-a-SDDP-framework-is-a-big-deal?">Why a SDDP framework is a big deal?<a class="anchor-link" href="#Why-a-SDDP-framework-is-a-big-deal?">&#194;&#182;</a></h1><p><br></p>
+<h2 id="Alternatives">Alternatives<a class="anchor-link" href="#Alternatives">&#194;&#182;</a></h2><ul>
 <li>FAST (Finally An SDDP Toolbox)</li>
 <li>StochDynamicProgramming.jl</li>
 <li>StructDualDynProg.jl</li>
@@ -11867,7 +11868,8 @@ a.anchor-link {
 <li>Easy to extend</li>
 <li>Many features </li>
 </ul>
-<p><a href="https://github.com/odow/talks/blob/master/sddp_jl.ipynb">The original Oscar Downson's presentation</a></p>
+<p><a href="https://github.com/odow/talks
+/blob/master/sddp_jl.ipynb">The original Oscar Downson's presentation</a></p>
 
 </div>
 </div>
@@ -11876,7 +11878,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="SDDP.jl---A-Flexible-SDDP-Library">SDDP.jl - A Flexible SDDP Library<a class="anchor-link" href="#SDDP.jl---A-Flexible-SDDP-Library">&#194;&#182;</a></h1><ul>
+<h1 id="SDDP.jl---A-Flexible-SDDP-Library">SDDP.jl - A Flexible SDDP Library<a class="anchor-link" href="#SDDP.jl---A-Flexible-SDDP-Library">&#194;&#182;</a></h1><p>What we can do with it:</p>
+<ul>
 <li>Multistage stochastic linear program in discrete time</li>
 <li>RHS uncertainty (scenarios)</li>
 <li>Markov uncertainty </li>
@@ -11994,7 +11997,6 @@ $$
  <span class="n">sense</span> <span class="o">=</span> <span class="ss">:M</span><span class="ow">in</span><span class="p">,</span>      <span class="c"># :Max or :Min?</span>
  <span class="n">stages</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>        <span class="c"># Number of stages</span>
  <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span>
- <span class="n">risk_measure</span> <span class="o">=</span> <span class="n">Expectation</span><span class="p">(),</span>
  <span class="n">objective_bound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="c"># Valid lower bound</span>
  <span class="p">)</span> <span class="k">do</span> <span class="n">sp</span><span class="p">,</span> <span class="n">t</span>                               
    <span class="c"># ) do subproblem_jump_model, stage_index</span>
@@ -12059,12 +12061,6 @@ $$
 $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}$</p>
 <div class="highlight"><pre><span></span><span class="nd">@state</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x0</span><span class="o">==</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
-<p>or do fancier things like</p>
-<div class="highlight"><pre><span></span><span class="n">RESERVOIRS</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:t</span><span class="n">aupo</span><span class="p">,</span> <span class="ss">:b</span><span class="n">enmore</span><span class="p">]</span>
-<span class="n">INITIAL_STORAGE</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">(</span><span class="ss">:t</span><span class="n">aupo</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:b</span><span class="n">enmore</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="nd">@state</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">r</span><span class="o">=</span><span class="n">RESERVOIRS</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x0</span><span class="o">==</span><span class="n">INITIAL_STORAGE</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
-</pre></div>
 
 </div>
 </div>
@@ -12085,8 +12081,7 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="5.-Defining-a-Noise">5. Defining a Noise<a class="anchor-link" href="#5.-Defining-a-Noise">&#194;&#182;</a></h1><p>Still a little messy. Not overly happy with it...</p>
-<p>A noise has three things:</p>
+<h1 id="5.-Defining-a-Noise">5. Defining a Noise<a class="anchor-link" href="#5.-Defining-a-Noise">&#194;&#182;</a></h1><p>A noise has three things:</p>
 <ol>
 <li>A constraint</li>
 <li>A set of RHS values</li>
@@ -12156,7 +12151,6 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
                   <span class="n">sense</span> <span class="o">=</span> <span class="ss">:M</span><span class="ow">in</span><span class="p">,</span>          
                  <span class="n">stages</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>             
                  <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span>   
-           <span class="n">risk_measure</span> <span class="o">=</span> <span class="n">Expectation</span><span class="p">(),</span> 
         <span class="n">objective_bound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>             
                                         <span class="p">)</span> <span class="k">do</span> <span class="n">sp</span><span class="p">,</span> <span class="n">t</span>
     
@@ -12167,7 +12161,7 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
     <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">)</span>
     
     <span class="c"># the noise (and dynamics)</span>
-    <span class="nd">@noise</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">x</span> <span class="o">==</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">u</span> <span class="o">-</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="nd">@noise</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">ω</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">x</span> <span class="o">==</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">u</span> <span class="o">-</span> <span class="n">ω</span><span class="p">)</span>
     
     <span class="c"># the objective</span>
     <span class="n">stageobjective!</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="p">)</span>
@@ -12240,12 +12234,12 @@ $</p>
                   <span class="n">sense</span> <span class="o">=</span> <span class="ss">:M</span><span class="ow">in</span><span class="p">,</span>          
                  <span class="n">stages</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>             
                  <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span>   
-           <span class="n">risk_measure</span> <span class="o">=</span> <span class="n">Expectation</span><span class="p">(),</span> 
         <span class="n">objective_bound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>             
                                         <span class="p">)</span> <span class="k">do</span> <span class="n">sp</span><span class="p">,</span> <span class="n">t</span>
-    <span class="nd">@state</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span>    <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x0</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">)</span>    
-    <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">)</span>
-    <span class="nd">@noise</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">x</span> <span class="o">==</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">u</span> <span class="o">-</span> <span class="n">omega</span><span class="p">)</span>
+ <span class="nd">@state</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span>    <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x0</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">)</span>    
+ <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">)</span>
+ <span class="nd">@noise</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">ω</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+        <span class="n">x</span> <span class="o">==</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">u</span> <span class="o">-</span> <span class="n">ω</span><span class="p">)</span>
     <span class="n">stageobjective!</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">u</span> <span class="p">)</span> 
 <span class="k">end</span>
 </pre></div>
@@ -12288,7 +12282,8 @@ $</p>
                         <span class="n">min</span>       <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>  <span class="c"># Min number of forwards to evaluate confidence interval for the bound</span>
                         <span class="n">step</span>      <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>   
                         <span class="n">max</span>       <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-                        <span class="n">confidence</span> <span class="o">=</span> <span class="mf">0.95</span>
+                        <span class="n">confidence</span> <span class="o">=</span> <span class="mf">0.95</span><span class="p">,</span>
+                        <span class="n">termination</span> <span class="o">=</span> <span class="nb">false</span>
                     <span class="p">),</span>
      <span class="n">print_level</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">)</span>
@@ -12472,6 +12467,42 @@ s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># load some packages</span>
+<span class="k">using</span> <span class="n">SDDP</span><span class="p">,</span> <span class="n">JuMP</span><span class="p">,</span> <span class="n">Clp</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
+                  <span class="n">sense</span> <span class="o">=</span> <span class="p">,</span>          
+                 <span class="n">stages</span> <span class="o">=</span> <span class="p">,</span>
+                 <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span> 
+        <span class="n">objective_bound</span> <span class="o">=</span> <span class="mi">0</span>             
+                                        <span class="p">)</span> <span class="k">do</span> <span class="n">sp</span><span class="p">,</span> <span class="n">t</span>
+    <span class="c"># State</span>
+    <span class="nd">@state</span><span class="p">(</span><span class="n">sp</span><span class="p">,)</span>
+    
+    <span class="c"># Variables</span>
+    <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,)</span>
+    
+    <span class="c"># Noise</span>
+    <span class="nd">@noise</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">,</span> <span class="p">)</span>
+    
+    <span class="c"># Constraints</span>
+    <span class="nd">@constraint</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">)</span>
+    
+    <span class="c"># Objective function </span>
+    <span class="n">stageobjective!</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">)</span> 
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div><aside class="notes">
 
 <div class="cell border-box-sizing code_cell rendered">
@@ -12513,7 +12544,32 @@ s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
 </div>
 
 </div>
-</aside><aside class="notes">
+</aside></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">srand</span><span class="p">(</span><span class="mi">1111</span><span class="p">)</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">,</span>
+    <span class="n">max_iterations</span> <span class="o">=</span> <span class="p">,</span>
+    <span class="n">time_limit</span>     <span class="o">=</span> <span class="p">,</span> 
+    <span class="n">simulation</span>     <span class="o">=</span> <span class="n">MonteCarloSimulation</span><span class="p">(</span>
+                        <span class="n">frequency</span> <span class="o">=</span> <span class="p">,</span>
+                        <span class="n">min</span>       <span class="o">=</span> <span class="p">,</span>
+                        <span class="n">step</span>      <span class="o">=</span> <span class="p">,</span>
+                        <span class="n">max</span>       <span class="o">=</span> <span class="p">,</span>
+                        <span class="n">termination</span> <span class="o">=</span> <span class="nb">false</span>
+                    <span class="p">),</span>
+     <span class="n">print_level</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div><aside class="notes">
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12798,6 +12854,17 @@ worst case risk measure.</p>
 </div>
 </div>
 
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="More-information">More information<a class="anchor-link" href="#More-information">&#194;&#182;</a></h1><p><br></p>
+<h3 id="Examples,-parameters-and-code-github.com/odow/SDDP.jl">Examples, parameters and code <a href="https://github.com/odow/SDDP.jl">github.com/odow/SDDP.jl</a><a class="anchor-link" href="#Examples,-parameters-and-code-github.com/odow/SDDP.jl">&#194;&#182;</a></h3><p><br></p>
+<h3 id="Original-Oscar-Dowson-presentation-github.com/odow/talks/blob/master/sddp_jl.ipynb">Original Oscar Dowson presentation <a href="https://github.com/odow/talks/blob/master/sddp_jl.ipynb">github.com/odow/talks/blob/master/sddp_jl.ipynb</a><a class="anchor-link" href="#Original-Oscar-Dowson-presentation-github.com/odow/talks/blob/master/sddp_jl.ipynb">&#194;&#182;</a></h3><p><br></p>
+<h3 id="This-talk-thuener.github.io/talks/">This talk <a href="https://thuener.github.io/talks/">thuener.github.io/talks/</a><a class="anchor-link" href="#This-talk-thuener.github.io/talks/">&#194;&#182;</a></h3>
+</div>
+</div>
 </div></section></section>
 </div>
 </div>
