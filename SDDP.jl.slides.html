@@ -36,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -58,7 +58,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -67,8 +67,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 *
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1162,6 +1162,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2590,6 +2591,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3080,6 +3082,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8810,9 +8813,6 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
-[dir="rtl"] #ipython_notebook {
-  float: right !important;
-}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9015,14 +9015,8 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9045,16 +9039,6 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
-}
-[dir="rtl"] .list_toolbar .tree-buttons {
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9191,9 +9175,6 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
-[dir="rtl"] #tree-selector a {
-  float: right;
-}
 #button-select-all {
   min-width: 50px;
 }
@@ -9283,9 +9264,6 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
-}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9330,9 +9308,6 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
-}
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9629,7 +9604,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9650,6 +9624,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11320,7 +11299,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 21ex;
+  width: 20ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11632,7 +11611,6 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
-  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11646,9 +11624,6 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
-}
-.terminal-app .terminal .xterm-rows {
-  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11709,10 +11684,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #008000 } /* Literal.Number.Hex */
 .highlight .mi { color: #008000 } /* Literal.Number.Integer */
 .highlight .mo { color: #008000 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11723,11 +11696,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #BA2121 } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #008000 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11853,17 +11824,18 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Why-a-SDDP-framework-is-a-big-deal?">Why a SDDP framework is a big deal?<a class="anchor-link" href="#Why-a-SDDP-framework-is-a-big-deal?">&#194;&#182;</a></h1><p><br></p>
-<h2 id="Alternatives">Alternatives<a class="anchor-link" href="#Alternatives">&#194;&#182;</a></h2><ul>
+<h1 id="Why-a-SDDP-framework-is-a-big-deal?">Why a SDDP framework is a big deal?<a class="anchor-link" href="#Why-a-SDDP-framework-is-a-big-deal?">&#182;</a></h1><p><br></p>
+<h2 id="Alternatives">Alternatives<a class="anchor-link" href="#Alternatives">&#182;</a></h2><ul>
 <li>FAST (Finally An SDDP Toolbox)</li>
 <li>StochDynamicProgramming.jl</li>
 <li>StructDualDynProg.jl</li>
 </ul>
-<h2 id="Why-SDDP.jl-(Oscar-Dowson)">Why SDDP.jl (Oscar Dowson)<a class="anchor-link" href="#Why-SDDP.jl-(Oscar-Dowson)">&#194;&#182;</a></h2><ul>
+<h2 id="Why-SDDP.jl-(Oscar-Dowson)">Why SDDP.jl (Oscar Dowson)<a class="anchor-link" href="#Why-SDDP.jl-(Oscar-Dowson)">&#182;</a></h2><ul>
 <li>Easy to use</li>
 <li>Easy to extend</li>
 <li>Many features </li>
@@ -11874,11 +11846,12 @@ a.anchor-link {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="SDDP.jl---A-Flexible-SDDP-Library">SDDP.jl - A Flexible SDDP Library<a class="anchor-link" href="#SDDP.jl---A-Flexible-SDDP-Library">&#194;&#182;</a></h1><p>What we can do with it:</p>
+<h1 id="SDDP.jl---A-Flexible-SDDP-Library">SDDP.jl - A Flexible SDDP Library<a class="anchor-link" href="#SDDP.jl---A-Flexible-SDDP-Library">&#182;</a></h1><p>What we can do with it:</p>
 <ul>
 <li>Multistage stochastic linear program in discrete time</li>
 <li>RHS uncertainty (scenarios)</li>
@@ -11889,11 +11862,12 @@ a.anchor-link {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="What-are-we-talking-about">What are we talking about<a class="anchor-link" href="#What-are-we-talking-about">&#194;&#182;</a></h1><p>A stage has six things</p>
+<h1 id="What-are-we-talking-about">What are we talking about<a class="anchor-link" href="#What-are-we-talking-about">&#182;</a></h1><p>A stage has six things</p>
 <p><img src="https://odow.github.io/talks/assets/stage.png" alt="Stage Problem" title="Stage Problem"></p>
 <ol>
 <li>An incoming state $x_{t-1}$</li>
@@ -11907,27 +11881,29 @@ a.anchor-link {
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 $$
 \begin{array}{r l r}
-    SP_t(\bar{x}_{t-1}, \omega_t):\quad\quad \min\limits_{u_t}  &amp; c_t(x_{t-1}, x_t, u_t) + \theta_{t+1}              \\
-\text{s.t.}\quad  x_{t-1}     &amp; = \bar{x}_{t-1} &amp;&amp; [\pi_t(\omega_t)]\\
-      x_t         &amp; = f_t(x_{t-1}, u_t)           \\
-      u_t         &amp; \in U_t(x_{t-1}, \omega_t)
+    SP_t(\bar{x}_{t-1}, \omega_t):\quad\quad \min\limits_{u_t}  & c_t(x_{t-1}, x_t, u_t) + \theta_{t+1}              \\
+\text{s.t.}\quad  x_{t-1}     & = \bar{x}_{t-1} && [\pi_t(\omega_t)]\\
+      x_t         & = f_t(x_{t-1}, u_t)           \\
+      u_t         & \in U_t(x_{t-1}, \omega_t)
 \end{array}
 $$<p>$SP_t$ is a user defined JuMP model.</p>
 
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Where-this-might-differ">Where this might differ<a class="anchor-link" href="#Where-this-might-differ">&#194;&#182;</a></h3><ul>
+<h3 id="Where-this-might-differ">Where this might differ<a class="anchor-link" href="#Where-this-might-differ">&#182;</a></h3><ul>
 <li>If I record 6 different states (initial, + five more), there are five stages, not six;</li>
 <li>Wait-and-See in a stage. You take an action today after realising the uncertainty(hazard-decision);</li>
 <li>Each stage is set-up as a linear programme.</li>
@@ -11954,11 +11930,12 @@ $$<p>$SP_t$ is a user defined JuMP model.</p>
 </div>
 
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-stock-example">The stock example<a class="anchor-link" href="#The-stock-example">&#194;&#182;</a></h1><p>Links to <a href="https://github.com/JuliaOpt/StochDynamicProgramming.jl/blob/master/examples/stock-example.jl">StochDynamicPrograming.jl</a> and <a href="https://github.com/odow/SDDP.jl/blob/master/examples/StochDynamicProgramming.jl/stock-example.jl">SDDP.jl</a> versions.</p>
+<h1 id="The-stock-example">The stock example<a class="anchor-link" href="#The-stock-example">&#182;</a></h1><p>Links to <a href="https://github.com/JuliaOpt/StochDynamicProgramming.jl/blob/master/examples/stock-example.jl">StochDynamicPrograming.jl</a> and <a href="https://github.com/odow/SDDP.jl/blob/master/examples/StochDynamicProgramming.jl/stock-example.jl">SDDP.jl</a> versions.</p>
 <ol>
 <li>Sense:  Minimising</li>
 <li>Stages: 5 stages ($t = 1,2,3,4,5$)</li>
@@ -11972,27 +11949,29 @@ $$<p>$SP_t$ is a user defined JuMP model.</p>
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 $$
 \begin{array}{r l}
-\min\limits_{u_t} &amp; (sin(3t) - 1)u_t + \theta_{t+1}\\
-s.t. &amp; x_t = x_{t-1} + u_t - \omega_t \\
-&amp; x_t \in [0, 1] \\
-&amp; u_t \in [0, 0.5] \\
-&amp; x_0 = 0.5
+\min\limits_{u_t} & (sin(3t) - 1)u_t + \theta_{t+1}\\
+s.t. & x_t = x_{t-1} + u_t - \omega_t \\
+& x_t \in [0, 1] \\
+& u_t \in [0, 0.5] \\
+& x_0 = 0.5
 \end{array}
 $$
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Syntax-for-creating-a-new-SDDPModel">Syntax for creating a new SDDPModel<a class="anchor-link" href="#Syntax-for-creating-a-new-SDDPModel">&#194;&#182;</a></h1><p>We define 1. and 2. in the constructor using keyword arguments.</p>
+<h1 id="Syntax-for-creating-a-new-SDDPModel">Syntax for creating a new SDDPModel<a class="anchor-link" href="#Syntax-for-creating-a-new-SDDPModel">&#182;</a></h1><p>We define 1. and 2. in the constructor using keyword arguments.</p>
 <div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
  <span class="n">sense</span> <span class="o">=</span> <span class="ss">:M</span><span class="ow">in</span><span class="p">,</span>      <span class="c"># :Max or :Min?</span>
  <span class="n">stages</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>        <span class="c"># Number of stages</span>
@@ -12010,11 +11989,12 @@ $$
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Defining-the-subproblem">Defining the subproblem<a class="anchor-link" href="#Defining-the-subproblem">&#194;&#182;</a></h1><p>We still need to define the last five things:</p>
+<h1 id="Defining-the-subproblem">Defining the subproblem<a class="anchor-link" href="#Defining-the-subproblem">&#182;</a></h1><p>We still need to define the last five things:</p>
 
 <pre><code>3. States
 4. Controls
@@ -12028,11 +12008,12 @@ $$
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.-Defining-a-state">3. Defining a state<a class="anchor-link" href="#3.-Defining-a-state">&#194;&#182;</a></h1><p>A stage has an incoming, and an outgoing state variable. Behind the scenes we'll take care of matching them up between stages.</p>
+<h1 id="3.-Defining-a-state">3. Defining a state<a class="anchor-link" href="#3.-Defining-a-state">&#182;</a></h1><p>A stage has an incoming, and an outgoing state variable. Behind the scenes we'll take care of matching them up between stages.</p>
 <p>To define a new state variable use the <code>@state</code> macro.</p>
 <div class="highlight"><pre><span></span><span class="nd">@state</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">lb</span> <span class="o">&lt;=</span> <span class="n">outgoing</span> <span class="o">&lt;=</span> <span class="n">ub</span><span class="p">,</span> <span class="ow">in</span><span class="n">coming</span> <span class="o">==</span> <span class="ow">in</span><span class="n">itial</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
@@ -12041,7 +12022,8 @@ $$
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12053,7 +12035,8 @@ $$
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12065,11 +12048,12 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="4.-Defining-a-control">4. Defining a control<a class="anchor-link" href="#4.-Defining-a-control">&#194;&#182;</a></h1><p>Controls are just JuMP variables. Nothing special.</p>
+<h1 id="4.-Defining-a-control">4. Defining a control<a class="anchor-link" href="#4.-Defining-a-control">&#182;</a></h1><p>Controls are just JuMP variables. Nothing special.</p>
 <p>From above $u_t \in [0, 0.5]$</p>
 <div class="highlight"><pre><span></span><span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">control</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
@@ -12077,11 +12061,12 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="5.-Defining-a-Noise">5. Defining a Noise<a class="anchor-link" href="#5.-Defining-a-Noise">&#194;&#182;</a></h1><p>A noise has three things:</p>
+<h1 id="5.-Defining-a-Noise">5. Defining a Noise<a class="anchor-link" href="#5.-Defining-a-Noise">&#182;</a></h1><p>A noise has three things:</p>
 <ol>
 <li>A constraint</li>
 <li>A set of RHS values</li>
@@ -12096,11 +12081,12 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="From-above-we-have">From above we have<a class="anchor-link" href="#From-above-we-have">&#194;&#182;</a></h3><p>5 - Noises</p>
+<h3 id="From-above-we-have">From above we have<a class="anchor-link" href="#From-above-we-have">&#182;</a></h3><p>5 - Noises</p>
 <ul>
 <li>10 stagewise independent noises: $\omega_t \in [0, 0.0333..., 0.0666..., ..., 0.3]$ </li>
 </ul>
@@ -12117,22 +12103,24 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="6.-Defining-dynamics">6. Defining dynamics<a class="anchor-link" href="#6.-Defining-dynamics">&#194;&#182;</a></h1><p>These can just be any JuMP constraints</p>
+<h1 id="6.-Defining-dynamics">6. Defining dynamics<a class="anchor-link" href="#6.-Defining-dynamics">&#182;</a></h1><p>These can just be any JuMP constraints</p>
 <div class="highlight"><pre><span></span><span class="nd">@constraint</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mf">1.5</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="7.-Defining-the-Stage-Objective">7. Defining the Stage Objective<a class="anchor-link" href="#7.-Defining-the-Stage-Objective">&#194;&#182;</a></h1><p>We only care about defining the stage objective. The future costs get handled automatically.</p>
+<h1 id="7.-Defining-the-Stage-Objective">7. Defining the Stage Objective<a class="anchor-link" href="#7.-Defining-the-Stage-Objective">&#182;</a></h1><p>We only care about defining the stage objective. The future costs get handled automatically.</p>
 <div class="highlight"><pre><span></span><span class="n">stageobjective!</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">AffExpr</span> <span class="n">of</span> <span class="n">Objective</span><span class="p">)</span>
 </pre></div>
 <p>We can use the index <code>t</code> to change coefficients between subproblems so our objective is</p>
@@ -12144,10 +12132,12 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">SDDP</span><span class="p">,</span> <span class="n">JuMP</span><span class="p">,</span> <span class="n">Clp</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
                   <span class="n">sense</span> <span class="o">=</span> <span class="ss">:M</span><span class="ow">in</span><span class="p">,</span>          
                  <span class="n">stages</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>             
                  <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span>   
@@ -12173,60 +12163,27 @@ $x^i_t \in [0, \infty),\quad x^i_0 = i, \quad i=\{1,2,3\}\quad t=\{1,2,\dots,T\}
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>SDDP.SDDPModel{SDDP.DefaultValueFunction{SDDP.DefaultCutOracle}}(:Min, SDDP.Stage[SDDP.Stage(1, JuMP.Model[Minimization problem with:
- * 2 linear constraints
- * 4 variables
-Solver is ClpMathProg], [1.0], Float64[], Dict{Any,Any}()), SDDP.Stage(2, JuMP.Model[Minimization problem with:
- * 2 linear constraints
- * 4 variables
-Solver is ClpMathProg], [1.0], Float64[], Dict{Any,Any}()), SDDP.Stage(3, JuMP.Model[Minimization problem with:
- * 2 linear constraints
- * 4 variables
-Solver is ClpMathProg], [1.0], Float64[], Dict{Any,Any}()), SDDP.Stage(4, JuMP.Model[Minimization problem with:
- * 2 linear constraints
- * 4 variables
-Solver is ClpMathProg], [1.0], Float64[], Dict{Any,Any}()), SDDP.Stage(5, JuMP.Model[Minimization problem with:
- * 2 linear constraints
- * 4 variables
-Solver is ClpMathProg], [1.0], Float64[], Dict{Any,Any}())], SDDP.Storage(Float64[], Int64[], Int64[], Array{Float64,1}[], Float64[], Float64[], Float64[]), SDDP.SolutionLog[], #1, Clp.ClpMathProgSolverInterface.ClpSolver(Any[]), Dict{Any,Any}())</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Compare-the-Julia-code-to-the-mathematical-subproblem">Compare the Julia code to the mathematical subproblem<a class="anchor-link" href="#Compare-the-Julia-code-to-the-mathematical-subproblem">&#194;&#182;</a></h3><p>$
+<h3 id="Compare-the-Julia-code-to-the-mathematical-subproblem">Compare the Julia code to the mathematical subproblem<a class="anchor-link" href="#Compare-the-Julia-code-to-the-mathematical-subproblem">&#182;</a></h3><p>$
 \begin{array}{r l}
-\min\limits_{u_t} &amp; (sin(3t) - 1)u_t + \theta_{t+1}\\
-s.t. &amp; x_t = x_{t-1} + u_t - \omega_t \\
-&amp; x_t \in [0, 1] \\
-&amp; u_t \in [0, 0.5] \\
-&amp; x_0 = 0.5
+\min\limits_{u_t} & (sin(3t) - 1)u_t + \theta_{t+1}\\
+s.t. & x_t = x_{t-1} + u_t - \omega_t \\
+& x_t \in [0, 1] \\
+& u_t \in [0, 0.5] \\
+& x_0 = 0.5
 \end{array}
 $</p>
 
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12247,11 +12204,12 @@ $</p>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Solve-options">Solve options<a class="anchor-link" href="#Solve-options">&#194;&#182;</a></h1><p>For a full list run <code>julia&gt;? SDDP.solve</code></p>
+<h1 id="Solve-options">Solve options<a class="anchor-link" href="#Solve-options">&#182;</a></h1><p>For a full list run <code>julia&gt;? SDDP.solve</code></p>
 <div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">,</span>
     <span class="n">max_iterations</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
     <span class="n">time_limit</span>     <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> 
@@ -12270,7 +12228,7 @@ $</p>
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">srand</span><span class="p">(</span><span class="mi">1111</span><span class="p">)</span>
@@ -12304,24 +12262,9 @@ $</p>
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre><span class="ansi-yellow-intense-fg ansi-bold">WARNING: </span><span class="ansi-yellow-fg">Solver does not appear to support providing initial feasible solutions.</span>
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Final bound is -1.471483864147188 (Expected -1.471).
+<pre>Final bound is -1.4710749176074298 (Expected -1.471).
 </pre>
 </div>
 </div>
@@ -12330,7 +12273,8 @@ $</p>
 </div>
 
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12411,7 +12355,8 @@ Final bound is -1.4710749176074305 (Expected -1.471).</code></pre>
 </div>
 
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12420,11 +12365,12 @@ Final bound is -1.4710749176074305 (Expected -1.471).</code></pre>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Example:-Simplified-Hydrothermal-Dispatch">Example: Simplified Hydrothermal Dispatch<a class="anchor-link" href="#Example:-Simplified-Hydrothermal-Dispatch">&#194;&#182;</a></h1><ul>
+<h1 id="Example:-Simplified-Hydrothermal-Dispatch">Example: Simplified Hydrothermal Dispatch<a class="anchor-link" href="#Example:-Simplified-Hydrothermal-Dispatch">&#182;</a></h1><ul>
 <li>Assume two thermoelectrics plants and one hydroelectric plant with reservoir and unit productivity coefficient.</li>
 <li>The first thermoelectric with cost 100 and the second with 1000 (R\$/ MWh) and capacities equal to 50 MW each.</li>
 <li>The hydroelectric plant has a reservoir with a capacity equivalent to 150 MWh that starts with a power of 150 MW.</li>
@@ -12435,11 +12381,12 @@ Final bound is -1.4710749176074305 (Expected -1.471).</code></pre>
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notation">Notation<a class="anchor-link" href="#Notation">&#194;&#182;</a></h1><ul>
+<h1 id="Notation">Notation<a class="anchor-link" href="#Notation">&#182;</a></h1><ul>
 <li>$ g_{i, t}$ - thermoelectric generation</li>
 <li>$u_t$ - turbine</li>
 <li>$ v_t $ - reservoir volume</li>
@@ -12450,21 +12397,21 @@ Final bound is -1.4710749176074305 (Expected -1.471).</code></pre>
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Subproblem">Subproblem<a class="anchor-link" href="#Subproblem">&#194;&#182;</a></h2><p>$FCF(v_{t-1}) =$
+<h2 id="Subproblem">Subproblem<a class="anchor-link" href="#Subproblem">&#182;</a></h2><p>$FCF(v_{t-1}) =$</p>
 \begin{array}{r l}
- \min\limits<em>{g,s,u,s \geq 0} &amp; 100 g</em>{1,t} + 1000 g<em>{2,t}\
-s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
-&amp; v_t + u_t + s<em>t = v</em>{t-1} + a_t \
-&amp; 0 \leq v_t \leq 200 \
-&amp; 0 \leq u<em>t \leq 150 \
-&amp; 0 \leq g</em>{1,t} \leq 50 \
-&amp; 0 \leq g_{2,t} \leq 50 \
-\end{array}</p>
-
+ \min\limits_{g,s,u,s \geq 0} & 100 g_{1,t} + 1000 g_{2,t}\\
+s.t. & g_{1,t} + g_{2,t} + u_t  = 150 \\
+& v_t + u_t + s_t = v_{t-1} + a_t \\
+& 0 \leq v_t \leq 200 \\
+& 0 \leq u_t \leq 150 \\
+& 0 \leq g_{1,t} \leq 50 \\
+& 0 \leq g_{2,t} \leq 50 \\
+\end{array}
 </div>
 </div>
 </div></section><section>
@@ -12473,47 +12420,7 @@ s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># load some packages</span>
-<span class="k">using</span> <span class="n">SDDP</span><span class="p">,</span> <span class="n">JuMP</span><span class="p">,</span> <span class="n">Clp</span>
-
-<span class="n">m</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
-                  <span class="n">sense</span> <span class="o">=</span> <span class="p">,</span>          
-                 <span class="n">stages</span> <span class="o">=</span> <span class="p">,</span>
-                 <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span> 
-        <span class="n">objective_bound</span> <span class="o">=</span> <span class="mi">0</span>             
-                                        <span class="p">)</span> <span class="k">do</span> <span class="n">sp</span><span class="p">,</span> <span class="n">t</span>
-    <span class="c"># State</span>
-    <span class="nd">@state</span><span class="p">(</span><span class="n">sp</span><span class="p">,)</span>
-    
-    <span class="c"># Variables</span>
-    <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,)</span>
-    
-    <span class="c"># Noise</span>
-    <span class="nd">@noise</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">,</span> <span class="p">)</span>
-    
-    <span class="c"># Constraints</span>
-    <span class="nd">@constraint</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">)</span>
-    
-    <span class="c"># Objective function </span>
-    <span class="n">stageobjective!</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">)</span> 
-<span class="k">end</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div><aside class="notes">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># load some packages</span>
-<span class="k">using</span> <span class="n">SDDP</span><span class="p">,</span> <span class="n">JuMP</span><span class="p">,</span> <span class="n">Clp</span>
-
-<span class="n">m</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
                   <span class="n">sense</span> <span class="o">=</span> <span class="ss">:M</span><span class="ow">in</span><span class="p">,</span>          
                  <span class="n">stages</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
                  <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span> 
@@ -12524,7 +12431,6 @@ s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
     
     <span class="c"># Variables</span>
     <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">200</span><span class="p">)</span>
     <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mi">150</span><span class="p">)</span>
     <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">)</span>
     
@@ -12543,37 +12449,10 @@ s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
 </div>
 </div>
 
-</div>
-</aside></section><section>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">srand</span><span class="p">(</span><span class="mi">1111</span><span class="p">)</span>
-<span class="n">status</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">,</span>
-    <span class="n">max_iterations</span> <span class="o">=</span> <span class="p">,</span>
-    <span class="n">time_limit</span>     <span class="o">=</span> <span class="p">,</span> 
-    <span class="n">simulation</span>     <span class="o">=</span> <span class="n">MonteCarloSimulation</span><span class="p">(</span>
-                        <span class="n">frequency</span> <span class="o">=</span> <span class="p">,</span>
-                        <span class="n">min</span>       <span class="o">=</span> <span class="p">,</span>
-                        <span class="n">step</span>      <span class="o">=</span> <span class="p">,</span>
-                        <span class="n">max</span>       <span class="o">=</span> <span class="p">,</span>
-                        <span class="n">termination</span> <span class="o">=</span> <span class="nb">false</span>
-                    <span class="p">),</span>
-     <span class="n">print_level</span><span class="o">=</span><span class="mi">0</span>
-<span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div><aside class="notes">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">srand</span><span class="p">(</span><span class="mi">1111</span><span class="p">)</span>
@@ -12589,22 +12468,36 @@ s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
                     <span class="p">),</span>
      <span class="n">print_level</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">)</span>
+
+<span class="nb">println</span><span class="p">(</span><span class="s">&quot;Final bound is </span><span class="si">$(SDDP.getbound(m))</span><span class="s"> (Expected 57470).&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-</aside><aside class="notes">
+<div class="output_wrapper">
+<div class="output">
 
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Final bound is 57470.000000000015 (Expected 57470).
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Simulation</span>
-<span class="n">simulation</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="p">[</span><span class="ss">:g</span><span class="p">,</span> <span class="ss">:u</span><span class="p">])</span>
+<span class="n">simulation</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,[</span><span class="ss">:g</span><span class="p">,</span> <span class="ss">:u</span><span class="p">])</span>
 <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Mean of simulation objectives is </span><span class="si">$(mean(r[:objective] for r in simulation))</span><span class="s">&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12612,13 +12505,27 @@ s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean of simulation objectives is 7480.000000000001
+</pre>
 </div>
-</aside></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Average-Value-at-Risk">Average Value at Risk<a class="anchor-link" href="#Average-Value-at-Risk">&#194;&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">risk_measure</span> <span class="o">=</span> <span class="n">NestedAVaR</span><span class="p">(</span><span class="n">lambda</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<h1 id="Average-Value-at-Risk">Average Value at Risk<a class="anchor-link" href="#Average-Value-at-Risk">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">risk_measure</span> <span class="o">=</span> <span class="n">NestedAVaR</span><span class="p">(</span><span class="n">lambda</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 <p>A risk measure that is a convex combination of Expectation and Average Value @ Risk
 (also called Conditional Value @ Risk).</p>
@@ -12626,7 +12533,7 @@ s.t. &amp; g</em>{1,t} + g_{2,t} + u_t  = 150 \
 <pre><code>lambda * E[x] + (1 - lambda) * AV@R(1-beta)[x]
 
 </code></pre>
-<h3 id="Keyword-Arguments">Keyword Arguments<a class="anchor-link" href="#Keyword-Arguments">&#194;&#182;</a></h3><ul>
+<h3 id="Keyword-Arguments">Keyword Arguments<a class="anchor-link" href="#Keyword-Arguments">&#182;</a></h3><ul>
 <li><p><code>lambda</code> - Convex weight on the expectation (<code>(1-lambda)</code> weight is put on the AV@R component. Inreasing values of <code>lambda</code> are less risk averse (more weight on expecattion)</p>
 </li>
 <li><p><code>beta</code> - The quantile at which to calculate the Average Value @ Risk. Increasing values
@@ -12640,7 +12547,7 @@ worst case risk measure.</p>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">m_risk</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
@@ -12649,7 +12556,7 @@ worst case risk measure.</p>
                  <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span>
            <span class="c"># risk_measure = Expectation(), </span>
            <span class="n">risk_measure</span> <span class="o">=</span> <span class="n">NestedAVaR</span><span class="p">(</span><span class="n">lambda</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span> 
-        <span class="n">objective_bound</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>             
+        <span class="n">objective_bound</span> <span class="o">=</span> <span class="mi">0</span>             
                                         <span class="p">)</span> <span class="k">do</span> <span class="n">sp</span><span class="p">,</span> <span class="n">t</span>
     
     <span class="c"># the state</span>
@@ -12672,10 +12579,24 @@ worst case risk measure.</p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>SDDP.SDDPModel{SDDP.DefaultValueFunction{SDDP.DefaultCutOracle}}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">srand</span><span class="p">(</span><span class="mi">1111</span><span class="p">)</span>
@@ -12693,19 +12614,34 @@ worst case risk measure.</p>
 <span class="p">)</span>
 
 <span class="c"># Check bound is correct</span>
-<span class="nb">println</span><span class="p">(</span><span class="s">&quot;Final bound is </span><span class="si">$(SDDP.getbound(m_risk))</span><span class="s"> (Expectation bound was -1.471).&quot;</span><span class="p">)</span>
+<span class="nb">println</span><span class="p">(</span><span class="s">&quot;Final bound is </span><span class="si">$(SDDP.getbound(m_risk))</span><span class="s">.&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Final bound is -0.42943999597006643.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="De-Matos-(Level-One)-Cut-Selection">De Matos (Level One) Cut Selection<a class="anchor-link" href="#De-Matos-(Level-One)-Cut-Selection">&#194;&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">m_risk</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
+<h1 id="De-Matos-(Level-One)-Cut-Selection">De Matos (Level One) Cut Selection<a class="anchor-link" href="#De-Matos-(Level-One)-Cut-Selection">&#182;</a></h1><div class="highlight"><pre><span></span><span class="n">m_risk</span> <span class="o">=</span> <span class="n">SDDPModel</span><span class="p">(</span>
                   <span class="n">sense</span> <span class="o">=</span> <span class="ss">:M</span><span class="ow">in</span><span class="p">,</span>          
                  <span class="n">stages</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>             
                  <span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">(),</span>
@@ -12718,11 +12654,12 @@ worst case risk measure.</p>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Asyncronous-Solver">Asyncronous Solver<a class="anchor-link" href="#Asyncronous-Solver">&#194;&#182;</a></h1><p>We parallelise by farming out a new instance of the SDDPModel to all slave processors.</p>
+<h1 id="Asyncronous-Solver">Asyncronous Solver<a class="anchor-link" href="#Asyncronous-Solver">&#182;</a></h1><p>We parallelise by farming out a new instance of the SDDPModel to all slave processors.</p>
 <p>Slaves perform iterations independently, and asyncronously share cuts between themselves.</p>
 <div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">,</span>
     <span class="n">solve_type</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">()</span>
@@ -12734,17 +12671,19 @@ worst case risk measure.</p>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Markov-Uncertainty">Markov Uncertainty<a class="anchor-link" href="#Markov-Uncertainty">&#194;&#182;</a></h1><p>More like a feed-forward graph with discrete stages but arbitrary number of nodes and transitions</p>
+<h1 id="Markov-Uncertainty">Markov Uncertainty<a class="anchor-link" href="#Markov-Uncertainty">&#182;</a></h1><p>More like a feed-forward graph with discrete stages but arbitrary number of nodes and transitions</p>
 <p><img src="https://odow.github.io/talks/assets/graph.png" alt="Markov Chain"></p>
 
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12764,7 +12703,7 @@ worst case risk measure.</p>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">Transition</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span> <span class="mi">2</span><span class="p">}[</span>
@@ -12787,7 +12726,7 @@ worst case risk measure.</p>
     <span class="nd">@state</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x0</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">)</span>
     <span class="nd">@variable</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mf">0.5</span><span class="p">)</span>
     <span class="nd">@noise</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">x</span> <span class="o">==</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">u</span> <span class="o">-</span> <span class="n">omega</span><span class="p">)</span>
-
+    
     <span class="c"># the objective</span>
     <span class="n">stageobjective!</span><span class="p">(</span><span class="n">sp</span><span class="p">,</span> <span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.75</span> <span class="o">*</span> <span class="n">markov_state</span><span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="p">)</span>
 
@@ -12803,11 +12742,7 @@ worst case risk measure.</p>
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>SDDP.SDDPModel{SDDP.DefaultValueFunction{SDDP.DefaultCutOracle}}
 </pre>
@@ -12820,7 +12755,7 @@ worst case risk measure.</p>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">m_markov</span><span class="p">,</span>
@@ -12840,13 +12775,9 @@ worst case risk measure.</p>
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Final bound is -1.634417972667261.
+<pre>Final bound is -1.6348860090220279.
 </pre>
 </div>
 </div>
@@ -12855,14 +12786,15 @@ worst case risk measure.</p>
 </div>
 
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="More-information">More information<a class="anchor-link" href="#More-information">&#194;&#182;</a></h1><p><br></p>
-<h3 id="Examples,-parameters-and-code-github.com/odow/SDDP.jl">Examples, parameters and code <a href="https://github.com/odow/SDDP.jl">github.com/odow/SDDP.jl</a><a class="anchor-link" href="#Examples,-parameters-and-code-github.com/odow/SDDP.jl">&#194;&#182;</a></h3><p><br></p>
-<h3 id="Original-Oscar-Dowson-presentation-github.com/odow/talks/blob/master/sddp_jl.ipynb">Original Oscar Dowson presentation <a href="https://github.com/odow/talks/blob/master/sddp_jl.ipynb">github.com/odow/talks/blob/master/sddp_jl.ipynb</a><a class="anchor-link" href="#Original-Oscar-Dowson-presentation-github.com/odow/talks/blob/master/sddp_jl.ipynb">&#194;&#182;</a></h3><p><br></p>
-<h3 id="This-talk-thuener.github.io/talks/">This talk <a href="https://thuener.github.io/talks/">thuener.github.io/talks/</a><a class="anchor-link" href="#This-talk-thuener.github.io/talks/">&#194;&#182;</a></h3>
+<h1 id="More-information">More information<a class="anchor-link" href="#More-information">&#182;</a></h1><p><br></p>
+<h3 id="Examples,-parameters-and-code-github.com/odow/SDDP.jl">Examples, parameters and code <a href="https://github.com/odow/SDDP.jl">github.com/odow/SDDP.jl</a><a class="anchor-link" href="#Examples,-parameters-and-code-github.com/odow/SDDP.jl">&#182;</a></h3><p><br></p>
+<h3 id="Original-Oscar-Dowson-presentation-github.com/odow/talks/blob/master/sddp_jl.ipynb">Original Oscar Dowson presentation <a href="https://github.com/odow/talks/blob/master/sddp_jl.ipynb">github.com/odow/talks/blob/master/sddp_jl.ipynb</a><a class="anchor-link" href="#Original-Oscar-Dowson-presentation-github.com/odow/talks/blob/master/sddp_jl.ipynb">&#182;</a></h3><p><br></p>
+<h3 id="This-talk-thuener.github.io/talks/">This talk <a href="https://thuener.github.io/talks/">thuener.github.io/talks/</a><a class="anchor-link" href="#This-talk-thuener.github.io/talks/">&#182;</a></h3>
 </div>
 </div>
 </div></section></section>
