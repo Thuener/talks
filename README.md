@@ -8,4 +8,4 @@ Workshop PUC-Rio [link](./workshopPUC.zip).  April 2018. Pontifícia Universidad
 
 Solving Large Scale Optimization using JuMP [video](https://www.youtube.com/watch?v=MLunP5cdRBI) [pdf](./thuenerJuMP2019.pdf). JuMP-Dev 2019 , March 2019. Pontificia Universidad Católica de Chile.
 
-[Curso Julia DEE 2019.1](https://goo.gl/Hgwiwm)
+[Curso Julia DEI 2019.1](https://goo.gl/Hgwiwm)
